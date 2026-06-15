@@ -148,7 +148,13 @@ Run it:
 the first line runs — always redirect `adb ... </dev/null` inside the loop
 (helpers.sh does this).
 
-Result on the reference tablet: 371 → 344 packages.
+Lists: `debloat.txt` (Samsung/Google apps) → `debloat-google.txt` (safe Play
+layer, keeps GMS/WebView/mainline) → `debloat-extra.txt` (second pass: DeX,
+Samsung Internet, Chrome, Gallery, AR junk, Smart View, carrier **ironSource
+Aura** adware, etc.). Run each with `./helpers.sh debloat` after pointing it at
+the list, or loop `pm uninstall --user 0` over the file (remember `</dev/null`).
+Result on the reference tablet: 371 → ~307 packages. (`themecenter` may refuse
+with DELETE_FAILED_INTERNAL_ERROR — it's the active theme engine; skip it.)
 
 ## Phase 3 — Kiosk provisioning (Fully Kiosk Browser)
 
@@ -229,6 +235,25 @@ camera client on the chosen camera id. The `Camera3-Stream getBuffer` /
 Privacy note: this leaves the front camera **always on**, watching the room.
 WallPanel can also publish motion/face events over MQTT/HTTP — a possible
 *presence* feed into Bifrost later.
+
+#### Mute/disable notifications (kiosk should never beep or pop)
+
+Layered, all reversible, and **media stream left untouched** so future voice TTS
+still plays:
+```bash
+A="adb shell"
+$A settings put global heads_up_notifications_enabled 0   # no banner popups over dashboard
+$A settings put system notification_light_pulse 0         # no notification LED
+$A settings put secure lock_screen_show_notifications 0   # none on lock screen
+$A settings put system sound_effects_enabled 0            # no UI touch sounds
+$A cmd notification set_dnd priority                      # Do Not Disturb on (zen_mode=1)
+$A cmd media_session volume --stream 5 --set 0            # STREAM_NOTIFICATION = 0
+$A cmd media_session volume --stream 2 --set 0            # STREAM_RING = 0
+# DO NOT touch --stream 3 (STREAM_MUSIC) — that's where TTS/media plays.
+```
+Verify: `dumpsys audio | grep 'ringer mode muted streams'` should list
+RING/NOTIFICATION/SYSTEM/DTMF (e.g. `0x126`) but NOT music. WallPanel fullscreen
+already hides the status bar, so notification icons don't show either.
 
 #### Hide the WallPanel settings button (and how to get it back)
 

@@ -1,0 +1,36 @@
+# Second-pass debloat — more Samsung/carrier bloat safe on a display kiosk.
+# pm uninstall --user 0 <pkg> (reversible). KEEP: knox*, telephony/dialer/ims,
+# networkstack/wifi.resources, providers.*, *.overlay.*, launcher, honeyboard,
+# webview, camera app (motion-detect), setupwizard.
+
+com.ironsrc.aura.tmo                         # T-Mobile ironSource Aura (adware/installer)
+com.samsung.android.app.dressroom            # AR avatar dressroom
+com.samsung.android.scloud                   # Samsung Cloud
+com.samsung.android.stickercenter            # stickers
+com.samsung.android.themecenter              # theme store
+com.samsung.android.visual.cloudcore         # Bixby Vision cloud
+com.sec.android.app.sbrowser                 # Samsung Internet browser
+com.sec.android.dexsystemui                  # DeX SystemUI
+com.sec.android.desktopmode.uiservice        # DeX desktop mode
+com.sec.android.app.desktoplauncher          # DeX launcher
+com.android.chrome                           # Chrome (WallPanel WebView is the display)
+com.sec.android.app.chromecustomizations     # Chrome customizations
+com.sec.android.gallery3d                    # Gallery
+com.sec.android.mimage.photoretouching       # photo editor
+com.sec.android.autodoodle.service           # AR doodle
+com.sec.android.app.ve.vebgm                 # video editor music
+com.samsung.app.newtrim                      # video trimmer
+com.sec.android.app.popupcalculator          # calculator
+com.samsung.android.messaging                # Samsung Messages (SMS UI)
+com.samsung.android.app.parentalcare         # parental care
+com.samsung.android.app.sharelive            # Quick Share live
+com.samsung.android.smartmirroring           # Smart View screen mirror
+com.samsung.android.app.watchmanagerstub     # Galaxy Wearable stub
+com.samsung.android.smartsuggestions         # smart suggestions
+com.samsung.android.dynamiclock              # dynamic lock screen
+com.samsung.android.widget.pictureframe      # picture frame widget
+com.sec.android.app.billing                  # Samsung billing (store removed)
+com.samsung.android.app.clipboardedge        # clipboard edge panel
+com.samsung.android.app.taskedge             # edge panels
+com.samsung.android.allshare.service.mediashare  # AllShare / DLNA
+com.samsung.android.app.updatecenter         # app update notifier
