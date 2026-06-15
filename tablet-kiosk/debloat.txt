@@ -1,0 +1,35 @@
+# Bifrost kiosk debloat list — Galaxy Tab A9+ (SM-X218U, One UI / Android 15)
+# Removed via: pm uninstall --user 0 <pkg>   (reversible: cmd package install-existing <pkg>)
+# NEVER add launcher/vending/gms/gsf/honeyboard/systemui/settings here.
+
+# --- Samsung ---
+com.samsung.android.app.spage          # Samsung Free / Daily board
+com.samsung.android.game.gamehome      # Game Launcher
+com.samsung.android.game.gos           # Game Optimizing Service
+com.samsung.android.kidsinstaller
+com.sec.android.app.kidshome           # Samsung Kids
+com.samsung.android.smartswitchassistant
+com.samsung.storyservice
+com.samsung.android.beaconmanager
+com.samsung.android.forest             # Digital Wellbeing (Samsung)
+com.samsung.android.voc                # Samsung Members / feedback
+com.sec.android.app.voicenote
+com.samsung.android.app.notes          # Samsung Notes
+com.sec.android.app.samsungapps        # Galaxy Store
+com.samsung.android.calendar           # stock Calendar (Tier 2)
+com.sec.android.app.clockpackage       # stock Clock (Tier 2)
+
+# --- Google / Microsoft ---
+com.google.android.youtube
+com.google.android.apps.maps
+com.google.android.apps.messaging
+com.google.android.apps.tachyon        # Meet/Duo
+com.google.android.gm                  # Gmail
+com.google.android.apps.subscriptions.red  # Google One
+com.google.ar.core
+com.google.android.apps.restore
+com.google.android.feedback
+com.microsoft.appmanager               # Link to Windows
+com.microsoft.skydrive                 # OneDrive
+com.google.android.googlequicksearchbox    # Google app / Assistant (Tier 2)
+com.google.android.tts                 # Google TTS (Tier 2)

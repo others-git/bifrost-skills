@@ -1,0 +1,27 @@
+# Google Play-layer debloat — SAFE layer (keeps GMS, GSF, WebView, mainline).
+# pm uninstall --user 0 <pkg>  (reversible). Fully Kiosk uses WebView, not these.
+# DO NOT add: webview, permissioncontroller, packageinstaller,
+#   providers.media.module, networkstack*, captiveportallogin, cellbroadcast*,
+#   ext.services/shared, modulemetadata, com.google.mainline.*, *.resources,
+#   *.overlay.* RROs, documentsui, setupwizard, privacy-sandbox modules.
+
+com.android.vending                          # Google Play Store
+com.google.android.gms.location.history      # Location History
+com.google.android.gms.supervision           # Family Link supervision
+com.google.android.partnersetup              # partner promo / setup
+com.google.android.onetimeinitializer        # Google one-time init
+com.google.android.syncadapters.calendar     # calendar sync (calendar app removed)
+com.google.android.printservice.recommendation   # Cloud Print recommend
+com.google.android.apps.carrier.carrierwifi  # carrier wifi
+com.google.android.apps.turbo                # Device Health Services
+# DO NOT REMOVE the overlay.gmsconfig.* RROs (photos/gsa/asi/common/geotz):
+#   they are IMMUTABLE overlays whose idmap only regenerates at boot. Removing
+#   one deletes its idmap and the dangling reference SIGABRTs the zygote on app
+#   launch -> "Samsung Keyboard keeps stopping" (and other apps). Recovery:
+#   cmd package install-existing <overlay> THEN reboot (boot regenerates idmaps).
+
+# --- DEEP CUT (opt-in, higher risk of "Play services stopped" popups) ---
+# com.google.android.gms
+# com.google.android.gsf
+# com.google.android.as          # Android System Intelligence
+# com.google.android.as.oss
