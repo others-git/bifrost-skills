@@ -13,7 +13,7 @@ com.sec.android.app.sbrowser                 # Samsung Internet browser
 com.sec.android.dexsystemui                  # DeX SystemUI
 com.sec.android.desktopmode.uiservice        # DeX desktop mode
 com.sec.android.app.desktoplauncher          # DeX launcher
-com.android.chrome                           # Chrome (WallPanel WebView is the display)
+com.android.chrome                           # Chrome (kiosk renders in the system WebView, not Chrome)
 com.sec.android.app.chromecustomizations     # Chrome customizations
 com.sec.android.gallery3d                    # Gallery
 com.sec.android.mimage.photoretouching       # photo editor

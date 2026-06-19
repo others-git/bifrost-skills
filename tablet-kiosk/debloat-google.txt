@@ -1,5 +1,6 @@
 # Google Play-layer debloat — SAFE layer (keeps GMS, GSF, WebView, mainline).
-# pm uninstall --user 0 <pkg>  (reversible). Fully Kiosk uses WebView, not these.
+# pm uninstall --user 0 <pkg>  (reversible). The bifrost-kiosk app renders in the
+# system WebView, not these.
 # DO NOT add: webview, permissioncontroller, packageinstaller,
 #   providers.media.module, networkstack*, captiveportallogin, cellbroadcast*,
 #   ext.services/shared, modulemetadata, com.google.mainline.*, *.resources,
